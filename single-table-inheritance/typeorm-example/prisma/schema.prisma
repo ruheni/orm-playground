@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model content {
+  id          Int     @id(map: "PK_6a2083913f3647b44f205204e36") @default(autoincrement())
+  title       String  @db.VarChar
+  description String  @db.VarChar
+  body        Int?
+  viewCount   Int?
+  width       Int?
+  height      Int?
+  url         String? @db.VarChar
+  fileName    String? @db.VarChar
+  question    Int?
+  answer      String? @db.VarChar
+  duration    Int?
+  type        String  @db.VarChar
+
+  @@index([type], map: "IDX_b9b0eb0c1e1e5f61a56ef072bc")
+}
+
+model migrations {
+  id        Int    @id(map: "PK_8c82d7f526340ab734260ea46be") @default(autoincrement())
+  timestamp BigInt
+  name      String @db.VarChar
+}
