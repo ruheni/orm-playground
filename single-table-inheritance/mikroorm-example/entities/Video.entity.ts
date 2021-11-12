@@ -10,5 +10,5 @@ export class Video extends Content {
   url!: string;
 
   @Property()
-  viewCount!: string;
+  viewCount!: number;
 }
