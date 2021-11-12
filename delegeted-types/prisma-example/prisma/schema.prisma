@@ -17,21 +17,17 @@ model Content {
 
 model Video {
   id       String @id @default(uuid())
-  title    String
-  url      String
   duration Float
 }
 
 model Image {
-  id     String @id @default(uuid())
-  fileName  String
-  url    String
-  width  Int
-  height Int
+  id        String @id @default(uuid())
+  width     Int
+  height    Int
 }
 
 model Article {
   id    String @id @default(uuid())
   title String
-  body  String?
+  body  String
 }

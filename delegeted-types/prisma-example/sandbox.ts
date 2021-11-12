@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 async function main() {
   const articleId = uuid()
   await prisma.$transaction([
-    prisma.article.create({ data: { id: articleId, title: 'Delegated Types?' } }),
+    prisma.article.create({ data: { id: articleId, title: 'Delegated Types?', body: 'Learn all about Delegated types and how they work' } }),
     prisma.content.create({ data: { id: articleId, type: 'article' } })
   ])
 
@@ -16,9 +16,7 @@ async function main() {
     prisma.video.create({
       data: {
         id: videoId,
-        title: 'What is Prisma',
         duration: 68,
-        url: 'https://youtu.be/EEDGwLB55bI'
       }
     }),
     prisma.content.create({ data: { id: videoId, type: 'video' } })
@@ -32,8 +30,6 @@ async function main() {
         id: imageId,
         width: 100,
         height: 100,
-        fileName: 'Prisma Logo',
-        url: 'https://pbs.twimg.com/profile_images/1454143920414285824/UA64pizS_400x400.jpg'
       }
     }),
     prisma.content.create({ data: { id: imageId, type: 'image' } })
